@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class='row'>
+    <div class='col-md-4' id='rock'>
+      <a href='{{ url_for('chooser', user_choice='1') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/1.jpg') }}' alt='rock'></a>
+    </div>
+    <div class='col-md-4' id='paper'>
+      <a href='{{ url_for('chooser', user_choice='2') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/2.jpg') }}' alt='paper'></a>
+    </div>
+    <div class='col-md-4' id='scissors'>
+      <a href='{{ url_for('chooser', user_choice='3') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/3.jpg') }}' alt='scissors'></a>
+    </div>
+  </div>
+</div>
+{% endblock body %}
