@@ -2,18 +2,23 @@
 
 {% block body %}
   <div class='row'>
-    <div class='col-md-4 col-md-offset-1'>
-      <h2>User chose :</h2>
-      <img class='img-responsive' src="static/img/{{ user }}.jpg" alt='User Choice'>
-    </div>
-    <div class='col-md-4 col-md-offset-1'>
-      <h2>Root chose :</h2>
-      <img class='img-responsive' src="static/img/{{ cpu }}.jpg" alt='Computer Choice'>
+    <div class='col-md-10 col-md-offset-1 {% if winner == None %}bg-info{% elif winner == 'You are ' %}bg-success{% else %}bg-danger{% endif %}'>
+      <h2>{% if not winner %}It's a tie!{% else %}{{ winner }} the winner!{% endif %}</h2>
     </div>
   </div>
   <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
-      <h2>{% if not winner %}It's a tie!{% else %}{{ winner }} is the winner!{% endif %}</h2>
+    <div class='col-md-4 col-md-offset-2'>
+      <h2>You chose :</h2>
+      <img class='img-responsive {%if winner == 'You are ' %}outline{% endif %}' src="static/img/{{ user }}.jpg" alt='User Choice'>
+    </div>
+    <div class='col-md-4'>
+      <h2>Root chose :</h2>
+      <img class='img-responsive {%if winner == 'Root is ' %}outline{% endif %}' src="static/img/{{ cpu }}.jpg" alt='Computer Choice'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-4 col-md-offset-4'>
+        <hr />
     </div>
   </div>
   <div class='row'>

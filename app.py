@@ -23,6 +23,7 @@ def determine_winner(player, cpu):
     Rock = 1, Paper = 2, Scissors = 3
     Player wins when diff is 1 or -2
     """
+
     if player not in (1, 2, 3):
         return redirect(url_for('index'))
     else:
@@ -30,9 +31,9 @@ def determine_winner(player, cpu):
         if diff == 0:
             winner = None
         elif diff == 1 or diff == -2:
-            winner = 'User '
+            winner = 'You are '
         else:
-            winner = 'Root '
+            winner = 'Root is '
         return winner
 
 if __name__ == '__main__':

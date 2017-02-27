@@ -2,6 +2,12 @@
 
 {% block body %}
   <div class='row'>
+    <div class='col-md-10 col-md-offset-1 bg-warning'>
+      <h2>Choose your weapon:</h2>
+    </div>
+  </div>
+  <br />
+  <div class='row'>
     <div class='col-md-4' id='rock'>
       <a href='{{ url_for('chooser', user_choice='1') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/1.jpg') }}' alt='rock'></a>
     </div>
