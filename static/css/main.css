@@ -9,7 +9,12 @@ body {
 }
 
 .outline {
-    border: solid 2px yellow
+    border:  2px solid yellow;
+}
+
+
+.winning {
+    border:  4px solid purple;
 }
 
 
