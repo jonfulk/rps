@@ -1,21 +1,55 @@
-{% extends "layout.html" %}
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <title>Rock || Paper || Scissors</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel='stylesheet' href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+<body>
 
-{% block body %}
+<div class='container'>
   <div class='row'>
-    <div class='col-md-10 col-md-offset-1 bg-warning'>
-      <h2>Choose your weapon:</h2>
+    <div class='col-md-6 col-md-offset-3'>
+        <h1>Rock || Paper || Scissors</h1>
+        <hr />
     </div>
   </div>
-  <br />
-  <div class='row'>
-    <div class='col-md-4' id='rock'>
-      <a href='{{ url_for('chooser', user_choice='1') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/1.jpg') }}' alt='rock'></a>
+  <div id="results" class='hideable'></div>
+  <div class="removable">
+    <div class='row'>
+      <div class='col-md-10 col-md-offset-1 bg-warning'>
+        <h2>Choose your weapon:</h2>
+      </div>
     </div>
-    <div class='col-md-4' id='paper'>
-      <a href='{{ url_for('chooser', user_choice='2') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/2.jpg') }}' alt='paper'></a>
-    </div>
-    <div class='col-md-4' id='scissors'>
-      <a href='{{ url_for('chooser', user_choice='3') }}'><img class='img-responsive' src='{{ url_for('static', filename='img/3.jpg') }}' alt='scissors'></a>
+    <br />
+    <div class='row'>
+      <div class='col-md-4'>
+        <h2>Rock</h2>
+        <a href='{{ url_for('chooser', user_choice=1) }}' class='choice'><img class='img-responsive hoverable' src='{{ url_for('static', filename='img/1.jpg') }}' alt='rock'></a>
+      </div>
+      <div class='col-md-4'>
+        <h2>Paper</h2>
+        <a href='{{ url_for('chooser', user_choice=2) }}' class='choice'><img class='img-responsive hoverable' src='{{ url_for('static', filename='img/2.jpg') }}' alt='paper'></a>
+      </div>
+      <div class='col-md-4'>
+        <h2>Scissors</h2>
+        <a href='{{ url_for('chooser', user_choice=3) }}' class='choice'><img class='img-responsive hoverable' src='{{ url_for('static', filename='img/3.jpg') }}' alt='scissors'></a>
+      </div>
     </div>
   </div>
-{% endblock body %}
+
+  <div class='row'>
+    <hr />
+    <footer><p>&copy; <a href="jonfulk.com">Jon Fulk</a> 2017</p></footer>
+</div>
+
+  <!-- /container -->
+
+  <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

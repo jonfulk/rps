@@ -1,14 +1,23 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
-    // - highlight on hover
-    $( "a > img" ).hover(
-        function() {$( this ).addClass( 'outline' )},
-        function() {$( this ).removeClass( 'outline' )}
-    );
+  function play(url) {
+      $.ajax({
+      url: url
+    })
+    .done(function(html) {
+      $('#results').html(html).fadeIn(1000);
+    });
+  };
 
-    // // - slow down transition from selection to results
-    // - use AJAX to do this in only 1 view?
+    // - slow down transition from selection to results
     // - hide divs of what is not chosen before displaying computer choice
 
+  $('.choice').on('click', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $('.removable').fadeOut(1000, function() {
+      play(url);
+    });
+  });
 
 });

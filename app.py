@@ -10,7 +10,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/<int:user_choice>')
+@app.route('/choice/<int:user_choice>')
 def chooser(user_choice):
     winner = None
     cpu_choice = randint(1, 3)
@@ -29,12 +29,11 @@ def determine_winner(player, cpu):
     else:
         diff = player - cpu
         if diff == 0:
-            winner = None
+            return None
         elif diff == 1 or diff == -2:
-            winner = 'You are '
+            return True
         else:
-            winner = 'Root is '
-        return winner
+            return False
 
 if __name__ == '__main__':
     app.run(debug=True)

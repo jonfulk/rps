@@ -1,19 +1,26 @@
-{% extends "layout.html" %}
-
-{% block body %}
   <div class='row'>
-    <div class='col-md-10 col-md-offset-1 {% if winner == None %}bg-info{% elif winner == 'You are ' %}bg-success{% else %}bg-danger{% endif %}'>
-      <h2>{% if not winner %}It's a tie!{% else %}{{ winner }} the winner!{% endif %}</h2>
+    <div class='col-md-10 col-md-offset-1 {% if winner == None %}bg-info{% elif winner %}bg-success{% else %}bg-danger{% endif %}'>
+      <h2>
+        {% if winner == None %}
+          It's a tie!
+        {% else %}
+          {% if winner %}
+            You are
+          {% else %}
+            Computer is
+          {% endif %} the winner!
+        {% endif %}
+      </h2>
     </div>
   </div>
   <div class='row'>
     <div class='col-md-4 col-md-offset-2'>
       <h2>You chose :</h2>
-      <img class='img-responsive {%if winner == 'You are ' %}winning{% endif %}' src="static/img/{{ user }}.jpg" alt='User Choice'>
+      <img class='img-responsive {% if winner %}winning{% endif %}' src="static/img/{{ user }}.jpg" alt='User Choice'>
     </div>
     <div class='col-md-4'>
       <h2>Root chose :</h2>
-      <img class='img-responsive {%if winner == 'Root is ' %}winning{% endif %}' src="static/img/{{ cpu }}.jpg" alt='Computer Choice'>
+      <img class='img-responsive {% if winner == False %}winning{% endif %}' src="static/img/{{ cpu }}.jpg" alt='Computer Choice'>
     </div>
   </div>
   <div class='row'>
@@ -28,4 +35,3 @@
       </a>
     </div>
   </div>
-{% endblock body %}
